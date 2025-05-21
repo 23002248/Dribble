@@ -1,5 +1,5 @@
 # Project Responsive Web Design using Bootstrap
-## Date: 21-05-2025
+## Date:21-05-2025
 
 ## AIM:
 To create a simplified clone of Dribbble (https://dribbble.com/) landing page.
@@ -26,124 +26,160 @@ Create a HTML file and include the needed Bootstrap components.
 Publish the website in the LocalHost.
 
 ## PROGRAM :
-```
+~~~
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dribbble</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dribbble Clone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('your-image-url.jpg'); 
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            color: #2c3e50; 
+        }
+        .gallery-item {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     
-    <header class="bg-light border-bottom py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h4 mb-0">Dribbble</h1>
-            <nav>
-                <ul class="list-unstyled d-flex mb-0">
-                    <li class="mx-3"><a href="#" class="text-decoration-none">Explore</a></li>
-                    <li class="mx-3"><a href="#" class="text-decoration-none">Hire a Designer</a></li>
-                    <li class="mx-3"><a href="#" class="text-decoration-none">Find Jobs</a></li>
-                    <li class="mx-3"><a href="#" class="text-decoration-none">Blog</a></li>
-                </ul>
-            </nav>
-            <div>
-                <button class="btn btn-outline-dark me-2">Sign up</button>
-                <button class="btn btn-dark">Log in</button>
-            </div>
-        </div>
-    </header>
-
-    
-    <section class="text-center py-5">
-        <div class="container">
-            <h2 class="fw-bold">Discover the world's top designers</h2>
-            <p class="text-muted">Explore work from the most talented and accomplished designers ready to take on your next project</p>
-            <form class="row g-2 justify-content-center mt-4">
-                <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="What are you looking for?">
-                </div>
-                <div class="col-auto">
-                    <select class="form-select">
-                        <option value="shots">Shots</option>
-                        <option value="shots">Designers</option>
-                        <option value="shots">Service</option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </form>
-            <p class="mt-3">Trending searches: <a href="#" class="text-decoration-none">landing page</a>, <a href="#" class="text-decoration-none">e-commerce</a>, <a href="#" class="text-decoration-none">mobile app</a>, <a href="#" class="text-decoration-none">logo design</a>, <a href="#" class="text-decoration-none">dashboard</a>, <a href="#" class="text-decoration-none">icons</a></p>
-        </div>
-    </section>
-
-    
-    <nav class="bg-light py-3">
-        <div class="container">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item"><a class="nav-link active" href="#">Discover</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Animation</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Branding</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Illustration</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Mobile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Print</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Product Design</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Typography</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Web Design</a></li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dribbble</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Shots</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Designers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Teams</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
+                <li class="nav-item"><a class="btn btn-primary" href="#">Sign Up</a></li>
             </ul>
         </div>
     </nav>
 
     
-    <section class="py-5 bg-dark">
-        <div class="container">
-            <h2 class="text-light text-center mb-4">Our Featured Works</h2>
-            <div class="row g-4">
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img1.jpg"class="img-fluid rounded" alt="Work 1" >
+    <div class="container mt-4">
+        <div class="text-center mb-4 header-section">
+            <h3>What are you working on?</h3>
+            <p class="lead">Dribbble is show and tell for designers.</p>
+        </div>
+
+        
+        <div class="row gallery-section">
+            
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="1224FEA_Cookies_199_RedVelvet-Sandwich-Cookies_preview-d99b2c8f011b44bca382da3a5862f18e.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">cream cookies</p>
+                        
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img2.jpg" class="img-fluid rounded" alt="Work 2">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="christmas-cookies-6859116_640.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Leaf Cookies</p>
+                
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img3.jpg" class="img-fluid rounded" alt="Work 3">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="pinwheel-cookies-homemade.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Choco cookies</p>
+                        
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img4.jpg" class="img-fluid rounded" alt="Work 4">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="Thumbprint-cookies-baf69cf.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Jam Cookies</p>
+                        
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img5.jpg" class="img-fluid rounded" alt="Work 5">
+            </div>
+        
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="83804240.webp" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title"></p>
+                        <small class="text-muted">Round cookies</small>
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img6.jpg" class="img-fluid rounded" alt="Work 6">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="white.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Cheese cookies</p>
+                        
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img7.jpg" class="img-fluid rounded" alt="Work 7">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="images (1).jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Moon cookies</p>
+                        
+                    </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="img8.jpg" class="img-fluid rounded" alt="Work 8">
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow gallery-item">
+                    <img src="images.jpg" class="card-img-top gallery-img" alt="Design Thumbnail">
+                    <div class="card-body text-center">
+                        <p class="card-title">Blue cookies</p>
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 
-    <footer class="bg-light py-4">
-        <div class="container text-center">
-            <p class="mb-0 text-muted">&copy; 2025 KARU. All Rights Reserved.</p>
-        </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© Dribbble. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-```
-
+~~~
 ## OUTPUT:
-
-![alt text](image.png)
-
+![Screenshot 2025-05-15 133139](https://github.com/user-attachments/assets/a8d70c5a-a1aa-4470-a2e7-a514cf2a1bd6)
 ## RESULT:
 The Project for responsive web design using Bootstrap is completed successfully.
